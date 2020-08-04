@@ -1,9 +1,11 @@
 import json
 import requests
 
+
 def parse_json(json_data):
     json_dict = json.loads(json_data)
     return json_dict
+
 
 def import_video_data(URL):
     print('Fetching Video page source using URL ' + URL)
@@ -15,6 +17,7 @@ def import_video_data(URL):
     end_index = tmp.find('}};')
     tmp = tmp[:end_index] + '}}'
     return tmp
+
 
 def main():
     print('MAIN')
@@ -60,6 +63,7 @@ def main():
         yt_json['contents']['twoColumnWatchNextResults']['results']['results']['contents'][0]['videoPrimaryInfoRenderer'][
             'dateText']['simpleText']
     print('Published Date:'+ published_date)
+
 
 if __name__ == '__main__':
     main()
